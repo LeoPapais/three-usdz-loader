@@ -13,12 +13,12 @@ declare class TextureRegistry {
     constructor(basename: any);
     basename: any;
     textures: any[];
-    loader: any;
+    loader: THREE.TextureLoader;
     getTexture(filename: any): any;
 }
 declare class HydraMesh {
     constructor(id: any, hydraInterface: any);
-    _geometry: any;
+    _geometry: THREE.BufferGeometry;
     _id: any;
     _interface: any;
     _points: any;
@@ -26,7 +26,7 @@ declare class HydraMesh {
     _colors: any;
     _uvs: any;
     _indices: any[] | undefined;
-    _mesh: any;
+    _mesh: THREE.Mesh<THREE.BufferGeometry, THREE.MeshPhysicalMaterial>;
     updateOrder(attribute: any, attributeName: any, dimension?: number): void;
     updateIndices(indices: any): void;
     setTransform(matrix: any): void;
@@ -51,9 +51,9 @@ declare class HydraMaterial {
         opacity: string;
     };
     static channelMap: {
-        r: any;
-        rgb: any;
-        rgba: any;
+        r: THREE.PixelFormat;
+        rgb: THREE.PixelFormat;
+        rgba: THREE.PixelFormat;
     };
     static usdPreviewToMeshPhysicalMap: {
         clearcoat: string;
@@ -75,4 +75,5 @@ declare class HydraMaterial {
     assignProperty(mainMaterial: any, parameterName: any): void;
     updateFinished(type: any, relationships: any): void;
 }
+import * as THREE from "three";
 export {};
