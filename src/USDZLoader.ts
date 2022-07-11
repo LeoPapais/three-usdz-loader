@@ -69,7 +69,7 @@ export class USDZLoader {
    * @param file
    * @param targetGroup
    */
-  async load(file: File, targetGroup: THREE.Group): Promise<USDZInstance> {
+  async loadFile(file: File, targetGroup: THREE.Group): Promise<USDZInstance> {
     if (this.modelIsLoading) {
       this.modelIsLoading = false;
       throw 'A model is already loading. Please wait.';
